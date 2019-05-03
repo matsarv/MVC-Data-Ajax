@@ -150,12 +150,12 @@ hr {
 }
 
 .row.partial:nth-child(odd) {
-    background-color: #2E9AFE;
+    background-color: #64b5ff;
     border-radius: 4px;
 }
 
 .row.partial:nth-child(even) {
-    background-color: #0080FF;
+    background-color: #3198fe;
     border-radius: 4px;
 }
 

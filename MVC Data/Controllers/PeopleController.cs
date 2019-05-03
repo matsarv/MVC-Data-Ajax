@@ -23,7 +23,7 @@ namespace MVC_Data.Controllers
         public IActionResult Index(string searchString)
         {
             PersonView pv = new PersonView();
-
+            //(string.IsNullOrWhiteSpace(searchString)
             if (!String.IsNullOrEmpty(searchString))
             {
                 pv.persons = _personService.FilterPersonCity(searchString);
@@ -46,11 +46,18 @@ namespace MVC_Data.Controllers
 
             Person person = _personService.CreatePerson(name, phone, city);
 
+
+            //PersonView pv = new PersonView();
+            //pv.persons = _personService.AllPersons();
+            //return RedirectToAction("Index");
             //return PartialView("_Person", person);
-            //return PartialView("_Person", _personService.AllPersons());
+            //return PartialView("_PersonList", _personService.AllPersons());
 
 
-            return RedirectToAction("Index");
+
+            //return PartialView("_PersonList", pv);
+
+            return PartialView("_PersonUpdate", person);
         }
 
 

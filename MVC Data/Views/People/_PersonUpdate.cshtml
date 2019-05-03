@@ -5,11 +5,11 @@
     <div class="col-3">@Model.Phone</div>
     <div class="col-3">@Model.City</div>
     <div class="col-3">
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-primary"
                 onclick="EditListItem('@("row-" + Model.Id)','@Url.Action("Edit","People",new { id = Model.Id})')">
             Edit
         </button>
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-primary"
                 onclick="DeleteListItem('@("row-" + Model.Id)','@Url.Action("Delete","People",new { id = Model.Id})')">
             Delete
         </button>

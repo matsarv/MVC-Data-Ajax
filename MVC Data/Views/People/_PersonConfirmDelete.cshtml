@@ -9,7 +9,7 @@
                 onclick="ConfirmDeleteListItem('@("row-" + Model.Id)','@Url.Action("ConfirmDelete","People",new { id = Model.Id})', '@Model.Id')">
             Confirm
         </button>
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-primary"
                 onclick="ConfirmCancelListItem('@("row-" + Model.Id)','@Url.Action("ConfirmCancel","People",new { id = Model.Id})', '@Model.Id')">
             Cancel
         </button>

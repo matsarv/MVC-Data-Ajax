@@ -8,19 +8,29 @@ function ConfirmCancelListItem(html_id, cancel_url) {
 
 function CreateListItem(update_url, item_name, item_phone, item_city) {
 
-    console.log(update_url);
-    //$.post(update_url,
-    //    {
-    //        Id: item_id,
-    //        Name: item_name,
-    //        Phone: item_phone,
-    //        City: item_city
+    var item_name = document.getElementById('name' + item_id).value;
+    var item_phone = document.getElementById('phone' + item_id).value;
+    var item_city = document.getElementById('city' + item_id).value;
 
-    //    },
-    //    function (data, status) {
+    console.log(item_name);
+    console.log('error: ' + status)
 
-    //    }
-    //);
+    $.post(update_url,
+        {
+            Name: item_name,
+            Phone: item_phone,
+            City: item_city
+        },
+        function (data, status) {
+            console.log(data);
+            if (status === 'success') {
+                $('#people').append(data);
+            }
+            else {
+                console.log('error: ' + status);
+            }
+        }
+    );
 
 }
 

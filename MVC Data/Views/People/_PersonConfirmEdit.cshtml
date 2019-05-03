@@ -5,11 +5,11 @@
     <div class="col-3"><input id="@("phone-" + Model.Id)" type="number" min="0" name="phone" value="@Model.Phone" /></div>
     <div class="col-3"><input id="@("city-" + Model.Id)" type="text" name="city" value="@Model.City" /></div>
     <div class="col-3">
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-success"
                 onclick="ConfirmEditListItem('@("row-" + Model.Id)','@Url.Action("ConfirmEdit", "People", new { id = Model.Id})','@(Model.Id)')">
             Confirm
         </button>
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-primary"
                 onclick="ConfirmCancelListItem('@("row-" + Model.Id)','@Url.Action("ConfirmCancel", "People", new { id = Model.Id })', '@Model.Id')">
             Cancel
         </button>
