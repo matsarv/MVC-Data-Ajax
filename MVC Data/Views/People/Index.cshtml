@@ -1,0 +1,77 @@
+﻿@model PersonView
+
+@{
+    ViewData["Title"] = "People List";
+}
+@*Ajax implementation*@
+
+@*<div>
+    <a class="aUpdate" asp-controller="People" asp-action="AJAXPartialExample" asp-route-id="99" data-target="environment-container"> AJAX Update</a>
+
+    <div id="environment-container">..........</div>
+</div>*@
+
+<h2>Peoples List</h2>
+
+<div class="row input">
+
+    <div class="col-md-8">
+
+        <p>Add person to the peoples list</p>
+
+        <form asp-controller="People" asp-action="Create">
+            <p>
+                <input type="text" name="name" value="" placeholder="Name" />
+                <input type="number" min="0" name="phone" value="" placeholder="Phone" />
+                <input type="text" name="city" value="" placeholder="City" />
+            </p>
+            @*<input class="btn btn-sm btn-danger" type="submit" value="Add" />*@
+
+            <button class="btn btn-sm btn-danger"
+                onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value'")">
+            Add
+        </button>
+
+        </form>
+
+        @*onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value'")*@
+
+    </div>
+
+    <div class="col-md-4">
+
+        <p>Filer People</p>
+
+        <form asp-controller="People" asp-action="Index" method="get">
+            <p>
+                <input type="text" asp-for="SearchString" placeholder="Name or City" />
+                <input class="btn btn-sm btn-danger" type="submit" value="Filter" />
+            </p>
+        </form>
+
+        <form asp-controller="People" asp-action="Index" method="get">
+            <input class="btn btn-sm btn-danger" type="submit" value="Reset" />
+        </form>
+ 
+    </div>
+</div>
+
+<br />
+@*<hr />*@
+
+<div class="col-12">
+    <div class="row">
+        <div class="col-3">Name</div>
+        <div class="col-3">Phone</div>
+        <div class="col-3">City</div>
+        <div class="col-3"></div>
+    </div>
+    @foreach (var item in Model.persons)
+    {
+        <partial name="_Person" model="item" />
+    }
+</div>
+
+<div class="people">
+    <partial name="_PersonList"/>
+</div>

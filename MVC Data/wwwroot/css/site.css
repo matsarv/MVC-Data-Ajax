@@ -1,0 +1,165 @@
+﻿body {
+    line-height: 150%;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+/*Header*/
+header {
+    background-color: black;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+header > img {
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+header > h1 {
+    float: left;
+    padding-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/*Navigate*/
+nav > ul > li {
+    float: left;
+    padding: 10px;
+    list-style-type: none;
+    background-color: black;
+}
+
+    nav > ul > li > a {
+        color: white;
+        text-decoration: underline;
+    }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/*Body*/
+#body {
+    /*background-color: darkslategray;*/
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#bodyArea {
+    max-width: 960px;
+    margin: auto;
+}
+
+/*Footer*/
+footer {
+    padding-left: 20px;
+    background-color: black;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+/*Button*/
+#rnd {
+    color: #2B1B17;
+}
+
+button {
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 5px;
+    display: block;
+    color: white;
+    background-color: firebrick;
+    text-align: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#btnFever a {
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 5px;
+    display: block;
+    color: white;
+    background-color: firebrick;
+    text-align: center;
+    padding: 1px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 90px;
+    font-size: 13px;
+}
+
+td {
+    padding: 5px 5px;
+}
+
+input {
+    border-radius: 5px;
+}
+
+/*input[type=number] {
+    border-radius: 5px;
+}*/
+
+li > form {
+    float: right;
+    padding-left: 10px;
+}
+
+li > div {
+    float: left;
+    list-style: none;
+}
+
+li {
+    padding: 5px 0;
+    list-style: none;
+}
+
+hr {
+    color: #efefef;
+    background-color: #efefef;
+    height: 2px;
+    width: 50%;
+}
+
+.list-container {
+
+    padding-right:5px;
+}
+.row.input {
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.row.partial:nth-child(odd) {
+    background-color: #2E9AFE;
+    border-radius: 4px;
+}
+
+.row.partial:nth-child(even) {
+    background-color: #0080FF;
+    border-radius: 4px;
+}
+
+#delete {
+    float: right;
+}
+
