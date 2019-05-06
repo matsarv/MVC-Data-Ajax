@@ -1,14 +1,7 @@
 ﻿@model PersonView
 
-<div class="col-12">
-    <div id="people" class="row">
-        <div class="col-3">Name</div>
-        <div class="col-3">Phone</div>
-        <div class="col-3">City</div>
-        <div class="col-3"></div>
-    </div>
-    @foreach (var item in Model.persons)
-    {
+
+@foreach (var item in Model.persons)
+{
     <partial name="_Person" model="item" />
-    }
-</div>
+}

@@ -18,12 +18,16 @@ namespace MVC_Data.Controllers
             _personService = personService;
         }
 
+            //(string.IsNullOrWhiteSpace(searchString)
+
         // GET
         [HttpGet]
         public IActionResult Index(string searchString)
+
         {
+
             PersonView pv = new PersonView();
-            //(string.IsNullOrWhiteSpace(searchString)
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 pv.persons = _personService.FilterPersonCity(searchString);
@@ -33,31 +37,42 @@ namespace MVC_Data.Controllers
                 pv.persons = _personService.AllPersons();
             }
             return View(pv);
+        }
+
+
+        [HttpPost]
+        public IActionResult Filter(string filter)
+        {
+            if (String.IsNullOrEmpty(filter))
+            {
+                return BadRequest();
+            }
+
+            PersonView pv = new PersonView();
+
+            pv.persons = _personService.FilterPersonCity(filter);
+
+            return PartialView("_PersonList", pv);
 
         }
 
+
+        [HttpPost]
         public IActionResult Create(string name, int phone, string city)
         {
             if (name == null || city == null)
             {
-                //return RedirectToAction("Index");
                 return BadRequest();
             }
 
             Person person = _personService.CreatePerson(name, phone, city);
 
+            PersonView pv = new PersonView();
 
-            //PersonView pv = new PersonView();
-            //pv.persons = _personService.AllPersons();
-            //return RedirectToAction("Index");
-            //return PartialView("_Person", person);
-            //return PartialView("_PersonList", _personService.AllPersons());
+            pv.persons = _personService.AllPersons();
 
+            return PartialView("_PersonList", pv);
 
-
-            //return PartialView("_PersonList", pv);
-
-            return PartialView("_PersonUpdate", person);
         }
 
 
@@ -178,9 +193,15 @@ namespace MVC_Data.Controllers
         //Ajax implementation
         public IActionResult AJAXPartialExample(int id)
         {
-            //return PartialView("_Person", _personService.AllPersons());
             return PartialView("_Person", _personService.FindPerson(id));
         }
+        public IActionResult AJAXPartialExampleAll(int id)
+        {
+            //return PartialView("_PersonList", _personService.AllPersons());
+            return PartialView("_PersonList", _personService.FindPerson(id));
+        }
+
+
     }
 
 }

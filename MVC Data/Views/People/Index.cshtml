@@ -19,57 +19,67 @@
 
         <p>Add person to the peoples list</p>
 
-        <form asp-controller="People" asp-action="Create">
+        @*<form asp-controller="People" asp-action="Create" method="post">*@
+
             <p>
-                <input type="text" name="name" value="" placeholder="Name" required />
-                <input type="number" min="0" name="phone" value="" placeholder="Phone" required />
-                <input type="text" name="city" value="" placeholder="City" required />
+                <input id="name" type="text" name="name" value="" placeholder="Name" />
+                <input id="phone" type="number" min="0" name="phone" value="" placeholder="Phone" />
+                <input id="city" type="text" name="city" value="" placeholder="City" />
             </p>
+
             @*<input class="btn btn-sm btn-primary" type="submit" value="Add" />*@
 
             <button class="btn btn-sm btn-primary"
-                    onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value')">
+                    onclick="CreateListItem('@Url.Action("Create", "People")')">
                 Add
             </button>
-
-        </form>
+            @*onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value')"*@
+        @*</form>*@
     </div>
 
     <div class="col-md-4">
 
         <p>Filer People</p>
+        <p>
+            <input id="filter" type="text" name="filter" value="" placeholder="Name or City" />
+            <button class="btn btn-sm btn-primary"
+                    onclick="FilterListItem('@Url.Action("Filter", "People")')">
+                Filter
+            </button>
+        </p>
 
-        <form asp-controller="People" asp-action="Index" method="get">
+
+        @*<form asp-controller="People" asp-action="Index" method="get">
             <p>
-                <input type="text" asp-for="SearchString" placeholder="Name or City" required />
+                <input type="text" asp-for="SearchString" placeholder="Name or City" />
                 <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
             </p>
         </form>
 
         <form asp-controller="People" asp-action="Index" method="get">
             <input class="btn btn-sm btn-primary" type="submit" value="Reset" />
-        </form>
+        </form>*@
 
     </div>
 </div>
 
 <br />
 
-
-@*<div class="col-12">
-        <div class="row">
-            <div class="col-3">Name</div>
-            <div class="col-3">Phone</div>
-            <div class="col-3">City</div>
-            <div class="col-3"></div>
-        </div>
-        @foreach (var item in Model.persons)
+<div class="col-12">
+    <div class="row">
+        <div class="col-3">Name</div>
+        <div class="col-3">Phone</div>
+        <div class="col-3">City</div>
+        <div class="col-3"></div>
+    </div>
+    @*@foreach (var item in Model.persons)
         {
             <partial name="_Person" model="item" />
-        }
-    </div>*@
-
-
-<div>
+        }*@
+</div>
+<br />
+<div id="people">
     <partial name="_PersonList" />
 </div>
+
+

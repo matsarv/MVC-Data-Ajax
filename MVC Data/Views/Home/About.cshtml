@@ -3,3 +3,53 @@
 }
 
 <h2>About</h2>
+
+
+
+@*Ajax implementation*@
+<div>
+    <a id="aUpdate" asp-controller="People" asp-action="AJAXPartialExample" asp-route-id="0" data-target="environment-container"> Update </a>
+    <div id="environment-container"></div>
+</div>
+
+
+
+@*Ajax implementation*@
+<script>
+    $("#aUpdate").click(function (e) {
+        e.preventDefault();
+        var _this = $(this);
+        $.get(_this.attr("href"), function (res) {
+            $('#' + _this.data("target")).html(res);
+        });
+    });
+</script>
+
+
+<hr />
+
+@*Ajax implementation*@
+<div>
+    <a id="bUpdate" asp-controller="People" asp-action="AJAXPartialExampleAll" asp-route-id="0" data-target="environment-container-all"> Update All </a>
+    <div id="environment-container-all"></div>
+</div>
+
+
+
+@*Ajax implementation*@
+<script>
+    $("#bUpdate").click(function (e) {
+        e.preventDefault();
+        var _this = $(this);
+        $.get(_this.attr("href"), function (res) {
+            $('#' + _this.data("target")).html(res);
+        });
+    });
+</script>
+
+
+@*//function CancelDeleteListItem(html_id, cancel_url) {
+//    $.get(cancel_url, function (data, status) {
+//        $('#' + html_id).replaceWith(data);
+//    });
+//}*@

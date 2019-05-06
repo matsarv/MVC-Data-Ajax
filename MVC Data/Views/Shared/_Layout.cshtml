@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
-    <link href="~/vendors/css/bootstrap.min.css" rel="stylesheet" />
-
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+    @*<link href="~/vendors/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link href="~/css/site.css" rel="stylesheet" />
-    @*<script src="~/vendors/js/jquery-3.3.1.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script src="~/vendors/js/bootstrap.js"></script>*@
-
 
 </head>
 
@@ -37,10 +33,13 @@
     </footer>
 
     @*Ajax implementation*@
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-  
+    @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>*@
-    <script src="~/vendors/js/bootstrap.js"></script>
+    @*<script src="~/vendors/js/bootstrap.js"></script>*@
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js"></script>
 
     @RenderSection("Scripts", required: false)
