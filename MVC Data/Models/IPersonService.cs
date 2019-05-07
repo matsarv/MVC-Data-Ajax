@@ -20,6 +20,9 @@ namespace MVC_Data.Models
         // ----- Read Filter 
         List<Person> FilterPersonCity(string searchString);
 
+        // ----- Read Sort 
+        List<Person> Sort(string sortOrder);
+
         //Update
         bool UpdatePerson(Person person);
 

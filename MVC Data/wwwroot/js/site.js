@@ -59,7 +59,24 @@ function FilterListItem(update_url) {
     })
 }
 
+function SortListItem(update_url, sort_order) {
+    //alert(update_url);
+    //alert(sort_order);
+
+    $.ajax({
+        url: update_url,
+        method: "POST",
+        data: {
+            sortOrder: sort_order
+        },
+        success: function (data) {
+            $('#people').html(data);
+        }
+    })
+}
+
 function EditListItem(html_id, edit_url) {
+    alert(edit_url)
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
     });

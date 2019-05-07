@@ -105,5 +105,31 @@ namespace MVC_Data.Models
             return (people);
         }
 
+        public List<Person> Sort(string sortOrder)
+        {
+            var people = pv.persons.ToList();
+
+            switch (sortOrder)
+            {
+                case "name":
+                    people = pv.persons.OrderBy(s => s.Name).ToList();
+                    break;
+                case "name_desc":
+                    people = pv.persons.OrderByDescending(s => s.Name).ToList();
+                    break;
+                case "phone":
+                    people = pv.persons.OrderBy(s => s.Phone).ToList();
+                    break;
+                case "city":
+                    people = pv.persons.OrderBy(s => s.City).ToList();
+                    break;
+                default:
+                    people = pv.persons.ToList();
+                    break;
+            }
+          
+
+            return (people);
+        }
     }
 }

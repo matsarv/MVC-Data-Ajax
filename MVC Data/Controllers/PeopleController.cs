@@ -60,13 +60,28 @@ namespace MVC_Data.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult Sort(string sortOrder)
+        {
+            
+            PersonView pv = new PersonView();
+
+            pv.persons = _personService.Sort(sortOrder);
+
+            return PartialView("_PersonList", pv);
+        }
+
 
         [HttpPost]
         public IActionResult Create(string name, int phone, string city)
         {
-            if (name == null || city == null)
+            if (name == null )
             {
-                return BadRequest();
+                return BadRequest(new { msg = "Name is missing"});
+            }
+            else if ( city == null)
+            {
+                return BadRequest(new { msg = "City is missing" });
             }
 
             Person person = _personService.CreatePerson(name, phone, city);

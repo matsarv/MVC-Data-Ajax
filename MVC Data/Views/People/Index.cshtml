@@ -31,11 +31,11 @@
         <p>Filer People</p>
         <p>
             <input id="filter" type="text" name="filter" value="" placeholder="Name or City" />
-            <button class="btn btn-sm btn-primary"
-                    onclick="FilterListItem('@Url.Action("Filter", "People")')">
-                Filter
-            </button>
         </p>
+        <button class="btn btn-sm btn-primary"
+                onclick="FilterListItem('@Url.Action("Filter", "People")')">
+            Filter
+        </button>
 
         @*<form asp-controller="People" asp-action="Index" method="get">
                 <p>
@@ -55,9 +55,27 @@
 
 <div class="col-12">
     <div class="row">
-        <div class="col-3">Name</div>
-        <div class="col-3">Phone</div>
-        <div class="col-3">City</div>
+        <div class="col-3">
+            <a id="ulbo" href="#"
+               onclick="SortListItem('@Url.Action("Sort","People")', 'name' )">
+                Name
+            </a>
+        </div>
+        <div class="col-3">
+            <a id="ulbo" href="#"
+               onclick="SortListItem('@Url.Action("Sort","People")','phone')">
+                Phone
+            </a>
+        </div>
+        <div id="ulbo" class="col-3">
+            <a href="#"
+               onclick="SortListItem('@Url.Action("Sort","People")','city')">
+                City
+            </a>
+        </div>
+        @*<div class="col-3">Name</div>*@
+        @*<div class="col-3">Phone</div>*@
+        @*<div class="col-3">City</div>*@
         <div class="col-3"></div>
     </div>
     @*@foreach (var item in Model.persons)
