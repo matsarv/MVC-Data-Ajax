@@ -6,44 +6,29 @@ function ConfirmCancelListItem(html_id, cancel_url) {
     });
 }
 
-//function CreateListItem(update_url, item_name, item_phone, item_city) {
-function sCreateListItem(update_url) {
-    console.log(update_url)
-    //var item_name = document.getElementById('name').value;
-    //var item_phone = document.getElementById('phone').value;
-    //var item_city = document.getElementById('city').value;
 
-    //alert(update_url);
+function sCreateListItem(update_url) {
 
     $.post(update_url,
         {
-            //Name: item_name,
-            //Phone: item_phone,
-            //City: item_city
             Name: $('#name').val(),
             Phone: $('#phone').val(),
             City: $('#city').val()
-
         },
         function (data, status) {
-
             if (status === 'success') {
 
                 $('#people').html(data);
             }
             else {
                 console.log('error: ' + status);
-                alert('error: ' + status);
             }
         }
     );
-    alert('Done!');
-
+    //alert('Done!');
 }
 
 function CreateListItem(update_url) {
-    console.log(update_url);
-    alert(update_url);
     $.ajax({
         url: update_url,
         method: "POST",
@@ -53,33 +38,24 @@ function CreateListItem(update_url) {
             City: $('#city').val()
         },
         success: function (data) {
-            console.log(data);
-            
             $('#people').html(data);
-            alert('Replace');
+            $('#name').val('')
+            $('#phone').val('')
+            $('#city').val('')
         }
-
     })
 }
 
-
 function FilterListItem(update_url) {
-    console.log(update_url);
-    alert(update_url);
     $.ajax({
         url: update_url,
         method: "POST",
         data: {
             Filter: $('#filter').val()
-
         },
         success: function (data) {
-            console.log(data);
-
             $('#people').html(data);
-            alert('Replace');
         }
-
     })
 }
 
@@ -89,9 +65,7 @@ function EditListItem(html_id, edit_url) {
     });
 }
 
-
 function ConfirmEditListItem(html_id, update_url, item_id) {
-    console.log(update_url)
     var item_name = document.getElementById('name-' + item_id).value;
     var item_phone = document.getElementById('phone-' + item_id).value;
     var item_city = document.getElementById('city-' + item_id).value;
@@ -102,7 +76,6 @@ function ConfirmEditListItem(html_id, update_url, item_id) {
             Name: item_name,
             Phone: item_phone,
             City: item_city
-
         },
         function (data, status) {
 
@@ -155,19 +128,9 @@ function ConfirmDeleteListItem(html_id, delete_url, item_id) {
     );
 }
 
-//function CancelDeleteListItem(html_id, cancel_url) {
-//    $.get(cancel_url, function (data, status) {
-//        $('#' + html_id).replaceWith(data);
-//    });
-//}
 
-//$("#aUpdate").click(function (e) {
-//    e.preventDefault();
-//    var _this = $(this);
-//    $.get(_this.attr("href"), function (res) {
-//        $('#' + _this.data("target")).html(res);
-//    });
-//});
+
+
 
 //$(document).ready(function () {
 //    $("#Delete").on("click", function () {

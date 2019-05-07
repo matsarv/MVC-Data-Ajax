@@ -15,35 +15,3 @@
         </button>
     </div>
 </div>
-
-
-
-@*<li id="row-@Model.Id" class="row partial">
-
-    <div class="col-3">
-        @Model.Name
-        <input type="text" name="name" value="@Model.Name" />
-    </div>
-    <div class="col-3">
-        @Model.Phone
-        <input type="number" min="0" name="phone" value="@Model.Phone" style="display:none" />
-    </div>
-    <div class="col-3">
-        @Model.City
-        <input type="text" name="city" value="@Model.City" style="display:none" />
-    </div>
-    <div class="col-3">
-
-        <a id="Edit" class="btn btn-danger" asp-controller="People" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-        <a id="Update" class="btn btn-danger" asp-controller="People" asp-action="Update" asp-route-id="@Model.Id" style="display:none">Update</a>
-        <a id="Cancel" class="btn btn-danger" asp-controller="People" asp-action="Cancel" asp-route-id="@Model.Id" style="display:none">Cancel</a>
-        <a id="Delete" class="btn btn-danger" asp-controller="People" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-        <button class="btn btn-danger"
-                onclick="DeleteListItem('@("row-" + Model.Id)','@Url.Action("Delete","People",new { id = Model.Id})')">
-            Delete
-        </button>
-
-    </div>
-
-</li>*@
-

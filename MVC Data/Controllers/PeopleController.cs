@@ -18,24 +18,25 @@ namespace MVC_Data.Controllers
             _personService = personService;
         }
 
-            //(string.IsNullOrWhiteSpace(searchString)
+        //(string.IsNullOrWhiteSpace(searchString)
 
         // GET
         [HttpGet]
-        public IActionResult Index(string searchString)
+        //public IActionResult Index(string searchString)
+        public IActionResult Index()
 
         {
 
             PersonView pv = new PersonView();
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                pv.persons = _personService.FilterPersonCity(searchString);
-            }
-            else
-            {
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    pv.persons = _personService.FilterPersonCity(searchString);
+            //}
+            //else
+            //{
                 pv.persons = _personService.AllPersons();
-            }
+            //}
             return View(pv);
         }
 
@@ -43,17 +44,20 @@ namespace MVC_Data.Controllers
         [HttpPost]
         public IActionResult Filter(string filter)
         {
-            if (String.IsNullOrEmpty(filter))
-            {
-                return BadRequest();
-            }
-
             PersonView pv = new PersonView();
 
-            pv.persons = _personService.FilterPersonCity(filter);
+            if (String.IsNullOrWhiteSpace(filter))
+            {
+                pv.persons = _personService.AllPersons();
 
-            return PartialView("_PersonList", pv);
-
+                return PartialView("_PersonList", pv);
+            }
+            else
+            {
+                pv.persons = _personService.FilterPersonCity(filter);
+                
+                return PartialView("_PersonList", pv);
+            }
         }
 
 

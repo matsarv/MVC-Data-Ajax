@@ -75,7 +75,7 @@ footer {
     color: #2B1B17;
 }
 
-button {
+/*button {
     border: none;
     background: none;
     box-shadow: none;
@@ -87,9 +87,9 @@ button {
     padding: 5px 30px;
     text-decoration: none;
     cursor: pointer;
-}
+}*/
 
-#btnFever a {
+/*#btnFever a {
     border: none;
     background: none;
     box-shadow: none;
@@ -103,11 +103,11 @@ button {
     cursor: pointer;
     width: 90px;
     font-size: 13px;
-}
+}*/
 
-td {
+/*td {
     padding: 5px 5px;
-}
+}*/
 
 input {
     border-radius: 5px;
@@ -117,7 +117,7 @@ input {
     border-radius: 5px;
 }*/
 
-li > form {
+/*li > form {
     float: right;
     padding-left: 10px;
 }
@@ -130,7 +130,7 @@ li > div {
 li {
     padding: 5px 0;
     list-style: none;
-}
+}*/
 
 hr {
     color: #efefef;
@@ -159,7 +159,7 @@ hr {
     border-radius: 4px;
 }
 
-#delete {
+/*#delete {
     float: right;
-}
+}*/
 

@@ -3,13 +3,6 @@
 @{
     ViewData["Title"] = "People List";
 }
-@*Ajax implementation*@
-
-@*<div>
-        <a class="aUpdate" asp-controller="People" asp-action="AJAXPartialExample" asp-route-id="99" data-target="environment-container"> AJAX Update</a>
-
-        <div id="environment-container">..........</div>
-    </div>*@
 
 <h2>Peoples List</h2>
 
@@ -19,22 +12,18 @@
 
         <p>Add person to the peoples list</p>
 
-        @*<form asp-controller="People" asp-action="Create" method="post">*@
+        <p>
+            <input id="name" type="text" name="name" value="" placeholder="Name" />
+            <input id="phone" type="number" min="0" name="phone" value="" placeholder="Phone" />
+            <input id="city" type="text" name="city" value="" placeholder="City" />
+        </p>
 
-            <p>
-                <input id="name" type="text" name="name" value="" placeholder="Name" />
-                <input id="phone" type="number" min="0" name="phone" value="" placeholder="Phone" />
-                <input id="city" type="text" name="city" value="" placeholder="City" />
-            </p>
+        <button class="btn btn-sm btn-primary"
+                onclick="CreateListItem('@Url.Action("Create", "People")')">
+            Add
+        </button>
+        @*onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value')"*@
 
-            @*<input class="btn btn-sm btn-primary" type="submit" value="Add" />*@
-
-            <button class="btn btn-sm btn-primary"
-                    onclick="CreateListItem('@Url.Action("Create", "People")')">
-                Add
-            </button>
-            @*onclick="CreateListItem('@Url.Action("Create", "People")'),'getElementById('name').value','getElementById('phone').value','getElementById('city').value')"*@
-        @*</form>*@
     </div>
 
     <div class="col-md-4">
@@ -48,17 +37,16 @@
             </button>
         </p>
 
-
         @*<form asp-controller="People" asp-action="Index" method="get">
-            <p>
-                <input type="text" asp-for="SearchString" placeholder="Name or City" />
-                <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
-            </p>
-        </form>
+                <p>
+                    <input type="text" asp-for="SearchString" placeholder="Name or City" />
+                    <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+                </p>
+            </form>
 
-        <form asp-controller="People" asp-action="Index" method="get">
-            <input class="btn btn-sm btn-primary" type="submit" value="Reset" />
-        </form>*@
+            <form asp-controller="People" asp-action="Index" method="get">
+                <input class="btn btn-sm btn-primary" type="submit" value="Reset" />
+            </form>*@
 
     </div>
 </div>
@@ -77,7 +65,9 @@
             <partial name="_Person" model="item" />
         }*@
 </div>
+
 <br />
+
 <div id="people">
     <partial name="_PersonList" />
 </div>
