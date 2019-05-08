@@ -72,7 +72,8 @@ namespace MVC_Data.Controllers
         {
             PersonView pv = new PersonView();
 
-            if (name == null || phone == null || city == null)
+            //if (name == null || phone == null || city == null)
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(city))
             {
                 pv.persons = _personService.AllPersons();
 
