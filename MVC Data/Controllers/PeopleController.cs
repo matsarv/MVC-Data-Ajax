@@ -26,17 +26,12 @@ namespace MVC_Data.Controllers
         public IActionResult Index()
 
         {
+            //(string.IsNullOrWhiteSpace(searchString)
 
             PersonView pv = new PersonView();
 
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    pv.persons = _personService.FilterPersonCity(searchString);
-            //}
-            //else
-            //{
-                pv.persons = _personService.AllPersons();
-            //}
+            pv.persons = _personService.AllPersons();
+
             return View(pv);
         }
 
@@ -55,7 +50,7 @@ namespace MVC_Data.Controllers
             else
             {
                 pv.persons = _personService.FilterPersonCity(filter);
-                
+
                 return PartialView("_PersonList", pv);
             }
         }
@@ -63,7 +58,7 @@ namespace MVC_Data.Controllers
         [HttpPost]
         public IActionResult Sort(string sortOrder)
         {
-            
+
             PersonView pv = new PersonView();
 
             pv.persons = _personService.Sort(sortOrder);
@@ -73,25 +68,22 @@ namespace MVC_Data.Controllers
 
 
         [HttpPost]
-        public IActionResult Create(string name, int phone, string city)
+        public IActionResult Create(string name, string phone, string city)
         {
-            if (name == null )
+            PersonView pv = new PersonView();
+
+            if (name == null || phone == null || city == null)
             {
-                return BadRequest(new { msg = "Name is missing"});
-            }
-            else if ( city == null)
-            {
-                return BadRequest(new { msg = "City is missing" });
+                pv.persons = _personService.AllPersons();
+
+                return PartialView("_PersonList", pv);
             }
 
             Person person = _personService.CreatePerson(name, phone, city);
 
-            PersonView pv = new PersonView();
-
             pv.persons = _personService.AllPersons();
 
             return PartialView("_PersonList", pv);
-
         }
 
 
@@ -122,7 +114,7 @@ namespace MVC_Data.Controllers
             if (ModelState.IsValid)
             {
                 _personService.UpdatePerson(person);
-                //return RedirectToAction("Index");
+
                 return PartialView("_PersonUpdate", person);
 
             }
@@ -183,7 +175,6 @@ namespace MVC_Data.Controllers
             return BadRequest();
         }
 
-
         [HttpGet]
         public IActionResult ConfirmCancel(int? id)
         {
@@ -204,24 +195,6 @@ namespace MVC_Data.Controllers
 
         }
 
-
-
-
-
-
-        //Ajax implementation
-        public IActionResult AJAXPartialExample(int id)
-        {
-            return PartialView("_Person", _personService.FindPerson(id));
-        }
-        public IActionResult AJAXPartialExampleAll(int id)
-        {
-            //return PartialView("_PersonList", _personService.AllPersons());
-            return PartialView("_PersonList", _personService.FindPerson(id));
-        }
-
-
     }
-
 }
 

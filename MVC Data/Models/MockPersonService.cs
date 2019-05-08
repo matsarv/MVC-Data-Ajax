@@ -14,12 +14,12 @@ namespace MVC_Data.Models
 
         public MockPersonService()
         {
-            pv.persons.Add(new Person() { Id = 0, Name = "Nisse Person", Phone = 0731234567, City = "Växjö" });
-            pv.persons.Add(new Person() { Id = 1, Name = "Nisse Karlsson", Phone = 0731234567, City = "Växjö" });
-            pv.persons.Add(new Person() { Id = 2, Name = "Kalle Nilsson", Phone = 0731234567, City = "Växjö" });
-            pv.persons.Add(new Person() { Id = 3, Name = "Kalle Karlsson", Phone = 0731234567, City = "Kalmar" });
-            pv.persons.Add(new Person() { Id = 4, Name = "Pelle Nilsson", Phone = 0731234567, City = "Kalmar" });
-            pv.persons.Add(new Person() { Id = 5, Name = "Pelle Person", Phone = 0731234567, City = "Lund" });
+            pv.persons.Add(new Person() { Id = 0, Name = "Nisse Person", Phone = "0731234567", City = "Växjö" });
+            pv.persons.Add(new Person() { Id = 1, Name = "Nisse Karlsson", Phone = "0731234567", City = "Växjö" });
+            pv.persons.Add(new Person() { Id = 2, Name = "Kalle Nilsson", Phone = "0731234567", City = "Växjö" });
+            pv.persons.Add(new Person() { Id = 3, Name = "Kalle Karlsson", Phone = "0731234567", City = "Kalmar" });
+            pv.persons.Add(new Person() { Id = 4, Name = "Pelle Nilsson", Phone = "0731234567", City = "Kalmar" });
+            pv.persons.Add(new Person() { Id = 5, Name = "Pelle Person", Phone = "0731234567", City = "Lund" });
         }
 
         public List<Person> AllPersons()
@@ -27,7 +27,7 @@ namespace MVC_Data.Models
             return pv.persons;
         }
 
-        public Person CreatePerson(string name, int phone, string city)
+        public Person CreatePerson(string name, string phone, string city)
         {
             Person person = new Person() { Id = idCount, Name = name, Phone = phone, City = city };
             idCount++;

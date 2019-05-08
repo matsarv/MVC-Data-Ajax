@@ -7,26 +7,27 @@ function ConfirmCancelListItem(html_id, cancel_url) {
 }
 
 
-function sCreateListItem(update_url) {
+//function xCreateListItem(update_url) {
 
-    $.post(update_url,
-        {
-            Name: $('#name').val(),
-            Phone: $('#phone').val(),
-            City: $('#city').val()
-        },
-        function (data, status) {
-            if (status === 'success') {
+//    $.post(update_url,
+//        {
+//            Name: $('#name').val(),
+//            Phone: $('#phone').val(),
+//            City: $('#city').val()
+//        },
+//        function (data, status) {
+//            alert(status);
+//            if (status === 'success') {
 
-                $('#people').html(data);
-            }
-            else {
-                console.log('error: ' + status);
-            }
-        }
-    );
-    //alert('Done!');
-}
+//                $('#people').html(data);
+//            }
+//            else {
+//                console.log('error: ' + status);
+//            }
+//        }
+//    );
+//    alert('Done!');
+//}
 
 function CreateListItem(update_url) {
     $.ajax({
@@ -76,7 +77,7 @@ function SortListItem(update_url, sort_order) {
 }
 
 function EditListItem(html_id, edit_url) {
-    alert(edit_url)
+    //alert(edit_url)
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
     });

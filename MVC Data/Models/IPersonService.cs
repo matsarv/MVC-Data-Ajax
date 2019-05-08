@@ -9,7 +9,7 @@ namespace MVC_Data.Models
     {
 
         //Create
-        Person CreatePerson(string name, int phone, string city);
+        Person CreatePerson(string name, string phone, string city);
 
         //Read All
         List<Person> AllPersons();
