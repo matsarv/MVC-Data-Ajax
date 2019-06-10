@@ -150,12 +150,12 @@ hr {
 }
 
 .row.partial:nth-child(odd) {
-    background-color: #64b5ff;
+    background-color: #c7c7c7;
     border-radius: 4px;
 }
 
 .row.partial:nth-child(even) {
-    background-color: #3198fe;
+    background-color: #808080;
     border-radius: 4px;
 }
 
@@ -166,4 +166,13 @@ hr {
 #ulbo {
     text-decoration: underline;
     font-weight:bold;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+.col-vcenter {
+    margin-top: 6px;
 }

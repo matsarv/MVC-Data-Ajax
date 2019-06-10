@@ -1,15 +1,15 @@
 ﻿@model Person
 
 <div class="row partial" id="@("row-" + Model.Id)">
-    <div class="col-3">@Model.Name</div>
-    <div class="col-3">@Model.Phone</div>
-    <div class="col-3">@Model.City</div>
+    <div class="col-3 col-vcenter">@Model.Name</div>
+    <div class="col-3 col-vcenter">@Model.Phone</div>
+    <div class="col-3 col-vcenter">@Model.City</div>
     <div class="col-3">
-        <button class="btn btn-sm btn-danger"
+        <button class="btn btn-sm btn-danger m-1"
                 onclick="ConfirmDeleteListItem('@("row-" + Model.Id)','@Url.Action("ConfirmDelete","People",new { id = Model.Id})', '@Model.Id')">
             Confirm
         </button>
-        <button class="btn btn-sm btn-primary"
+        <button class="btn btn-sm btn-primary m-1"
                 onclick="ConfirmCancelListItem('@("row-" + Model.Id)','@Url.Action("ConfirmCancel","People",new { id = Model.Id})', '@Model.Id')">
             Cancel
         </button>

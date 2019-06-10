@@ -1,15 +1,15 @@
 ﻿@model Person
 
 <div class="row partial" id="@("row-" + Model.Id)">
-    <div class="col-3"><input id="@("name-" + Model.Id)" type="text" name="name" value="@Model.Name" /></div>
-    <div class="col-3"><input id="@("phone-" + Model.Id)" type="number" min="0" name="phone" value="@Model.Phone" /></div>
-    <div class="col-3"><input id="@("city-" + Model.Id)" type="text" name="city" value="@Model.City" /></div>
+    <div class="col-3 col-vcenter"><input id="@("name-" + Model.Id)" type="text" name="name" value="@Model.Name" /></div>
+    <div class="col-3 col-vcenter"><input id="@("phone-" + Model.Id)" type="number" min="0" name="phone" value="@Model.Phone" /></div>
+    <div class="col-3 col-vcenter"><input id="@("city-" + Model.Id)" type="text" name="city" value="@Model.City" /></div>
     <div class="col-3">
-        <button class="btn btn-sm btn-success"
+        <button class="btn btn-sm btn-success m-1"
                 onclick="ConfirmEditListItem('@("row-" + Model.Id)','@Url.Action("ConfirmEdit", "People", new { id = Model.Id})','@(Model.Id)')">
             Confirm
         </button>
-        <button class="btn btn-sm btn-primary"
+        <button class="btn btn-sm btn-primary m-1"
                 onclick="ConfirmCancelListItem('@("row-" + Model.Id)','@Url.Action("ConfirmCancel", "People", new { id = Model.Id })', '@Model.Id')">
             Cancel
         </button>
